@@ -5,6 +5,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	welcome to
+	欢迎进入配置中心管理界面！
 </body>
 </html>

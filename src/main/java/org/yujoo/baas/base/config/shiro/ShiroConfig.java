@@ -75,6 +75,14 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/admin/resource/add", "perms[system:resource:add]");
 		filterChainDefinitionMap.put("/admin/resource/edit*", "perms[system:resource:edit]");
 		filterChainDefinitionMap.put("/admin/resource/deleteBatch", "perms[system:resource:deleteBatch]");
+		/**
+		 * 排行
+		 */
+		filterChainDefinitionMap.put("/admin/ranklist/index", "perms[system:ranklist:index]");
+		filterChainDefinitionMap.put("/admin/ranklist/add", "perms[system:ranklist:add]");
+		filterChainDefinitionMap.put("/admin/ranklist/edit*", "perms[system:ranklist:edit]");
+		filterChainDefinitionMap.put("/admin/ranklist/deleteBatch", "perms[system:ranklist:deleteBatch]");
+		
 		
 		filterChainDefinitionMap.put("/admin/**", "authc");
 		shiroFilter.setFilterChainDefinitionMap(filterChainDefinitionMap);

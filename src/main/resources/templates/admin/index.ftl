@@ -36,12 +36,12 @@
                                 <span class="clear">
                                     <span class="block m-t-xs" style="font-size:20px;">
                                         <i class="fa fa-area-chart"></i>
-                                        <strong class="font-bold">SPPanAdmin</strong>
+                                        <strong class="font-bold">配置后台</strong>
                                     </span>
                                 </span>
                             </a>
                         </div>
-                        <div class="logo-element">SPPanAdmin
+                        <div class="logo-element">配置后台
                         </div>
                     </li>
                     <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
@@ -73,6 +73,11 @@
                          <@shiro.hasPermission name="system:resource:index">
                             <li>
                                 <a class="J_menuItem" href="${ctx!}/admin/resource/index">资源管理</a>
+                            </li>
+                         </@shiro.hasPermission>
+                           <@shiro.hasPermission name="system:ranklist:index">
+                            <li>
+                                <a class="J_menuItem" href="${ctx!}/admin/ranklist/index">排行管理</a>
                             </li>
                          </@shiro.hasPermission>
                         </ul>
