@@ -41,7 +41,7 @@ public class RankList extends BaseEntity {
 	/**
 	 * 游戏id
 	 */
-	private Integer gameId;
+	private String gameId;
 
 	/**
 	 * 排行榜单id
@@ -49,7 +49,7 @@ public class RankList extends BaseEntity {
 	private Integer leaderboardid;
 
 	/**
-	 * 过期类型
+	 * 过期类型 0,1,2,3
 	 */
 	private String expireType;
 
@@ -96,11 +96,11 @@ public class RankList extends BaseEntity {
 		this.id = id;
 	}
 
-	public Integer getGameId() {
+	public String getGameId() {
 		return gameId;
 	}
 
-	public void setGameId(Integer gameId) {
+	public void setGameId(String gameId) {
 		this.gameId = gameId;
 	}
 

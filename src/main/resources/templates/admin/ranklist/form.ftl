@@ -42,19 +42,7 @@
                     <div class="ibox-content">
                         <form class="form-horizontal m-t" id="frm" method="post" action="${ctx!}/admin/ranklist/edit">
                         	<input type="hidden" id="id" name="id" value="${ranklist.id}">
-                            <div class="form-group">
-                             <!--  <label class="col-sm-3 control-label">上级资源：</label>
-                                <div class="col-sm-8">
-                                	<select name="parent.id" class="form-control">
-                                		<#list list as r>
-                                			<option value="${r.id}" <#if ranklist.parent.id == r.id>selected="selected"</#if>>
-                                				<#if r.level == 1>|-<#elseif  r.level == 2>　|-<#else>　　|-</#if>${r.name}
-                                			</option>
-                                		</#list>
-                                		
-                                	</select>
-                                </div>--!>
-                            </div>
+                       
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">游戏id：</label>
                                 <div class="col-sm-8">
@@ -74,7 +62,7 @@
                                 		<option value="0" <#if ranklist.expireType == 0>selected="selected"</#if>>永久</option>
                                 		<option value="1" <#if ranklist.expireType == 1>selected="selected"</#if>>按天</option>
                                 		<option value="2" <#if ranklist.expireType == 2>selected="selected"</#if>>按周</option>
-                                		<option value="2" <#if ranklist.expireType == 2>selected="selected"</#if>>按月</option>
+                                		<option value="3" <#if ranklist.expireType == 3>selected="selected"</#if>>按月</option>
                                 	</select>
                                 </div>
                             </div>
@@ -87,13 +75,13 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">分区分值：</label>
                                 <div class="col-sm-8">
-                                    <input id="scorePartion" name="scorePartion" class="form-control" value="${ranklist.scorePartion}" placeholder="目录：1，菜单：2，按钮：3">
+                                    <input id="scorePartion" name="scorePartion" class="form-control" value="${ranklist.scorePartion}" placeholder="若无分区，分值填   -1">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">排序：</label>
                                 <div class="col-sm-8">
-                                    <input id="sortRule" name="sortRule" class="form-control" value="${ranklist.sortRule}">
+                                    <input id="sortRule" name="sortRule" class="form-control" value="desc">  <!-- ${ranklist.sortRule}--!>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -108,12 +96,12 @@
                                     <input id="redisConfig" name="redisConfig" class="form-control" value="${ranklist.redisConfig}">
                                 </div>
                             </div>
-                            <div class="form-group">
+                       <!--     <div class="form-group">
                                 <label class="col-sm-3 control-label">创建时间：</label>
                                 <div class="col-sm-8">
                                     <input id="createTime" name="createTime" class="form-control" value="${ranklist.createTime}">
                                 </div>
-                            </div>
+                            </div>-->
                             <div class="form-group">
                                 <div class="col-sm-8 col-sm-offset-3">
                                     <button class="btn btn-primary" type="submit">提交</button>
@@ -146,9 +134,11 @@
 	    $("#frm").validate({
     	    rules: {
     	    	gameId: {
+    	    	number:true,
     	        required: true,
     	      },
     	      	leaderboardid: {
+    	      	number:true,
     	        required: true,
     	      
     	      },
@@ -163,7 +153,7 @@
     	        number:true
     	      },
     	      	sortRule: {
-    	      	number:true,
+    	      
     	        required: true
     	      },
     	      	mysqlConfig: {
@@ -172,10 +162,6 @@
     	      	redisConfig: {
     	      	 maxlength: 40
     	    
-    	      },
-    	      	createTime: {
-    	     
-    	        maxlength: 40
     	      }
     	    },
     	    messages: {},
